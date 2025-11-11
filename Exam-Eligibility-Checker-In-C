@@ -1,0 +1,28 @@
+//Exam Eligibility Checker
+
+#include <stdio.h>
+
+int main()
+{
+    int attendance, disc, permission;
+    
+    printf("[Online Exam Eligibility]\n\n");
+    
+    printf("Enter attendance(Percentage): ");
+    scanf("%d", &attendance);
+    
+    printf("Do you have a disciplinary record? (1 = yes, 0 = no): ");
+    scanf("%d", &disc);
+    
+    printf("Do you have a special permission? (1 = yes, 0 = no): ");
+    scanf("%d", &permission);
+    
+    if (attendance < 75){
+        printf("You are not eligible for the exam! (Low Attendance).");
+    } else if (disc != 1 || permission == 1) {
+        printf("You are eligible for the exam!");
+    } else {
+        printf("You are not eligible for the exam! (Disciplinary Record).");
+    }
+    return 0;
+}

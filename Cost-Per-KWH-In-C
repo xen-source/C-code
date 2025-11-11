@@ -1,0 +1,25 @@
+//cost per kilowatt checker
+
+#include <stdio.h>
+
+int main()
+{
+	float usage, bill;
+	
+	printf("[Electricity Bill Calculator]\n\n");
+	
+	printf("Enter the kWh usage: ");
+	scanf("%f", &usage);
+	
+	if (usage <= 100){
+	    bill = usage * 5;
+	    printf("bill: %.2f", bill);
+	} else if (usage > 100 && usage <= 200){
+	    bill = (100*5)+(usage-100)*7;
+	    printf("bill: %.2f", bill);
+	} else if (usage > 200) {
+	    bill = (100*5)+(100*7)+(usage-200)*10;
+	    printf("bill: %.2f", bill);
+	}
+	return 0;
+}
