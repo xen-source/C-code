@@ -1,2 +1,2 @@
-# C-code
-First code in C
+# C-codes
+First codes in C
