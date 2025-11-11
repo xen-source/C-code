@@ -1,0 +1,139 @@
+//random programs as a system.
+
+#include <stdio.h>
+#include <string.h>
+
+//HELLO WORLD + GREET USER
+
+void helloWorldGreetUser ()
+{
+    char name[50];
+
+    printf("Hello, world!\n");
+    
+    printf("What is your name: ");
+    getchar();
+    fgets(name, sizeof(name), stdin);
+    
+    name[strcspn(name, "\n")]='\0';
+    
+    printf("Hello %s, how are you?", name);
+    
+}
+
+//BASIC CALCULATOR
+
+void basicCalculator (){
+    float num1, num2, result;
+    char op;
+    
+    printf("First digit: ");
+    scanf("%f", &num1);
+    
+    printf("Operator(+,-,*,/): ");
+    scanf(" %c", &op);
+    
+    printf("Second digit: ");
+    scanf("%f", &num2);
+    
+    switch (op){
+        case '+':
+        result = num1+num2;
+        printf("%.2f", result);
+        break;
+        
+        case '-':
+        result = num1-num2;
+        printf("%.2f", result);
+        break;
+        
+        case '*':
+        result = num1*num2;
+        printf("%.2f", result);
+        break;
+        
+        case '/':
+        if (num2==0){
+            printf("You cannot divide by zero!");
+        } else {
+        result = num1/num2;
+        printf("%.2f", result);
+        }
+        break;
+        
+        default: 
+        printf("Invalid operator!");
+        break;
+    }
+    getchar();
+}
+
+//ODD/EVEN NUMBER CHECKER
+
+void checkOddOrEven ()
+{
+    int num, checker;
+    
+    printf("[Odd or Even number checker]\n\n");
+    printf("Enter your number: ");
+    scanf("%d", &num);
+    
+    checker = num % 2;
+    
+    if (checker==0){
+        printf("Your number is EVEN!");
+    } else {
+        printf("Your number is ODD!");
+    }
+    getchar();
+}
+
+//POSITIVE/NEGATIVE NUMBER CHECKER
+
+void checkPositiveOrNegative (){
+    float num;
+    
+    printf("[Positive or Negative number checker]\n\n");
+    
+    printf("Enter your number: ");
+    scanf("%f", &num);
+    
+    if (num>0){
+        printf("Your number is POSITIVE!");
+    } else {
+        printf("Your number is NEGATIVE!");
+    }
+    getchar();
+}
+
+int main()
+{
+    char loop [4];
+    char choice;
+    
+    do{
+    printf("1. Hello world + greet user.\n2. Basic calculator.\n3. Odd/Even number checker.\n4. Positive/Negative number checker.\nGo to:");
+    scanf(" %c", &choice);
+
+    switch (choice)
+    {
+    case '1':
+        helloWorldGreetUser();
+        break;
+        case '2':
+        basicCalculator();
+        break;
+        case '3':
+        checkOddOrEven();
+        break;
+        case '4':
+        checkPositiveOrNegative();
+     }
+     printf("\nBack to menu(yes/no): ");
+     
+     fgets(loop, sizeof(loop), stdin);
+    
+     loop[strcspn(loop, "\n")]='\0';
+     
+    } while (strcmp(loop, "yes") == 0);
+}
