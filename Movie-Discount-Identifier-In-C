@@ -1,0 +1,25 @@
+//Discount verification code
+
+#include <stdio.h>
+
+int main()
+{
+	int age, studentID;
+	
+	printf("[Movie Ticket Discount]\n\n");
+	
+	printf("Enter age: ");
+	scanf("%d", &age);
+	
+	printf("Do you have an ID? (1 = yes, 0 = no): ");
+	scanf("%d", &studentID);
+	
+	if (age < 12 || age  > 60) {
+	    printf("\nDiscount: 20%%\n");
+	} else if (studentID == 1) {
+	    printf("\nDiscount: 10%%\n");
+	} else {
+	    printf("\nDiscount: 0%%\n");
+	}
+	return 0;
+}
