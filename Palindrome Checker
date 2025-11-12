@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+void reverse(char arr[], char rev[], int size){
+    for (int i=0; i<size; i++){
+        rev[i]=arr[size-i-1];
+    }
+}
+
+int main()
+{
+	int palindrome = 0;
+	char arr[5]={'l','o','v','o','l'};
+	char rev[5];
+	int size=sizeof(arr)/sizeof(arr[0]);
+	
+	printf("Original array: ");
+	for (int j=0; j<size; j++){
+	printf("%c", arr[j]);
+	}
+	
+	reverse(arr, rev, size);
+	
+	printf("\nReversed array: ");
+	for (int i=0; i<size; i++){
+	printf("%c", rev[i]);
+	}
+	
+	for (int o=0; o<size; o++){
+	if(arr[o]==rev[o]){
+	palindrome+=1;
+	}
+	}
+	
+	if (palindrome==size){
+	    printf("\nYes its a palindrome");
+	}
+	
+}
