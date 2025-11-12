@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int validatedUserInt(const char prompt[100]){
+    int num, result;
+    
+    do{
+    printf("%s", prompt);
+    result = scanf("%d", &num);
+    while(getchar()!='\n');
+    }while(result != 1);
+    return num;
+}
+
+int main()
+{
+	int num1, num2, num3;
+	
+	num1 = validatedUserInt("Enter first number: ");
+	num2 = validatedUserInt("Enter second number: ");
+	num3 = validatedUserInt("Enter third number: ");
+	
+	if (num1>num2 && num1 > num3){
+	    printf("%d is the biggest number", num1);
+	} else if (num2>num1 && num2>num3){
+	    printf("%d is the biggest number", num2);
+	} else {
+	    printf("%d is the biggest number", num3);
+	}
+	return 0;
+}
